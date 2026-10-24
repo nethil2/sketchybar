@@ -9,10 +9,10 @@ return {
         padding = 0,
     },
     group = {
-        blur = 20,
+        blur = 15,
         border_width = 0,
         padding = 4, -- inner space between the pill edge and its first/last item
-        gap = 4, -- space between neighbouring groups
+        gap = 1, -- space between neighbouring groups
     },
     meter = {
         width = 50, -- level track of volume / battery

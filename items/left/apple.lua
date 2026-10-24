@@ -1,19 +1,19 @@
 -- System icon with a small system menu
 local metrics = require("theme.metrics")
 local icons = require("theme.icons")
+local fonts = require("theme.fonts")
+local tokens = require("theme.tokens")
 local ui = require("ui")
 
 local logo = ui.item("apple.logo", {
-    icon = { drawing = false },
+    icon = {
+        string = "\u{F302}",
+        font = fonts.get("icon", "Bold", "md"),
+        color = tokens.fg.primary,
+    },
     label = { drawing = false },
     padding_left = metrics.space.md,
     padding_right = metrics.space.sm,
-    background = {
-        image = {
-            string = os.getenv("CONFIG_DIR") .. "/assets/sakura.png",
-            scale = 0.07,
-        },
-    },
 })
 
 local entries = {

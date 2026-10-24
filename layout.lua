@@ -4,9 +4,7 @@ local ui = require("ui")
 local layout = ui.layout
 
 layout("left", {
-    { name = "workspaces", items = { "items.left.apple", ui.separator, "items.left.spaces" } },
-    { name = "front_app", items = { "items.left.front_app" } },
-    { name = "media", items = { "items.left.media" } },
+    { name = "workspaces", items = { "items.left.apple", ui.separator, "items.left.spaces", "items.left.front_app" } },
 })
 
 layout("right", {

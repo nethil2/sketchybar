@@ -1,23 +1,23 @@
--- Semantic color roles.
+-- Semantic color roles — monochrome with subtle green-charcoal tint.
 local p = require("theme.palette")
 local alpha = require("lib.color").alpha
 
 return {
     surface = {
         bar = p.transparent,
-        group = alpha(p.base, 0.88),
-        item_active = p.accent,
-        hover = alpha(p.text, 0.08),
-        popup = alpha(p.base, 0.88),
+        group = p.transparent,
+        item_active = p.transparent,
+        hover = alpha(p.text, 0.06),
+        popup = p.transparent,
     },
     border = {
-        group = p.hl_high,
-        popup = p.love,
-        divider = alpha(p.text, 0.2),
+        group = alpha(p.text, 0.15),
+        popup = alpha(p.text, 0.12),
+        divider = alpha(p.text, 0.08),
     },
     track = {
         fill = p.text,
-        rest = alpha(p.text, 0.2),
+        rest = alpha(p.text, 0.12),
     },
     fg = {
         primary = p.text,
@@ -25,12 +25,12 @@ return {
         faint = p.muted,
     },
     status = {
-        ok = p.green,
-        warn = p.gold,
-        alert = p.orange,
-        crit = p.love,
-        info = p.pine,
+        ok = p.text,
+        warn = p.subtle,
+        alert = p.subtle,
+        crit = p.text,
+        info = p.subtle,
     },
-    accent = p.love,
+    accent = p.text,
     none = p.transparent,
 }

@@ -10,8 +10,8 @@ local COUNT = 10
 
 local STYLE = {
     active = { bg = tokens.surface.item_active, fg = tokens.fg.primary },
-    occupied = { bg = tokens.none, fg = tokens.fg.primary },
-    empty = { bg = tokens.none, fg = tokens.fg.faint },
+    occupied = { bg = tokens.none, fg = 0xffa0a0a0 },
+    empty = { bg = tokens.none, fg = 0xff7a7a7a },
 }
 
 -- slots[i] = { item = <sbar item>, state = "active" | "occupied" | "empty" }

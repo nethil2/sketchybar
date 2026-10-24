@@ -10,12 +10,12 @@ local app = ui.item("front_app", {
         font = fonts.get("icon", "Bold", "md"),
         string = "",
         color = tokens.accent,
-        padding_left = metrics.space.md,
+        padding_left = metrics.space.xs,
         padding_right = metrics.space.xs,
     },
     label = {
         font = fonts.get("text", "Bold", "lg"),
-        padding_left = metrics.space.sm,
+        padding_left = metrics.space.xs,
         padding_right = metrics.space.md,
     },
 })

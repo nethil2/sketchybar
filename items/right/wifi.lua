@@ -1,4 +1,4 @@
--- Wi-Fi status icon and LAN address
+-- Wi-Fi status icon and network name (SSID)
 local tokens = require("theme.tokens")
 local metrics = require("theme.metrics")
 local fonts = require("theme.fonts")
@@ -20,14 +20,21 @@ local wifi = ui.item("wifi", {
     },
 })
 
+local HELPER = "/Users/nethil2/Applications/WifiSSIDHelper.app/Contents/MacOS/WifiSSIDHelper"
+
 local function update()
-    local cmd = "ifconfig " .. IFACE .. " | awk '/status:/{print $2}'; ipconfig getifaddr " .. IFACE
+    local cmd = "ifconfig " .. IFACE .. " | awk '/status:/{print $2}'; " .. HELPER
     sbar.exec(cmd, function(out)
-        local status, ip = tostring(out):match("(%S*)%s*(%S*)")
-        local connected = status == "active" and ip ~= ""
+        local lines = {}
+        for line in tostring(out):gmatch("[^\r\n]+") do
+            table.insert(lines, line)
+        end
+        local status = (lines[1] or ""):match("^%s*(.-)%s*$") or ""
+        local ssid = (lines[2] or ""):match("^%s*(.-)%s*$") or ""
+        local connected = status == "active" and ssid ~= ""
         wifi:set({
             icon = { string = connected and icons.wifi.on or icons.wifi.off },
-            label = { string = ip, drawing = connected },
+            label = { string = connected and ssid or "", drawing = connected },
         })
     end)
 end

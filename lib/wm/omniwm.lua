@@ -3,10 +3,13 @@ local watcher = require("lib.watcher")
 
 local M = {}
 
+-- sketchybar runs under launchd with a minimal PATH, so resolve the binary.
+local BIN = "/opt/homebrew/bin/omniwmctl"
+
 M.event = "omniwm_workspace_changed"
 
 local WATCH = [[sh -c 'while :; do ]]
-    .. [[omniwmctl watch active-workspace,windows-changed --reconnect ]]
+    .. BIN .. [[ watch active-workspace,windows-changed --reconnect ]]
     .. [[--exec sketchybar --trigger ]] .. M.event .. [[; ]]
     .. [[sleep 1; done']]
 
@@ -18,7 +21,7 @@ end
 
 -- isCurrent is the workspace on screen; isFocused only tracks the one holding
 -- the focused window, which lags when switching to an empty workspace.
-local QUERY = "omniwmctl query workspaces | jq -r "
+local QUERY = BIN .. " query workspaces | jq -r "
     .. [['.result.payload.workspaces[] | "\(.rawName) \(.counts.total) \(.isCurrent)"']]
 
 -- cb(state) with state[name] = { occupied = bool, focused = bool }.
@@ -34,7 +37,7 @@ function M.query(cb)
 end
 
 function M.focus_cmd(name)
-    return 'omniwmctl workspace focus-name "' .. name .. '"'
+    return BIN .. ' workspace focus-name "' .. name .. '"'
 end
 
 return M

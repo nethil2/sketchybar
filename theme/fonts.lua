@@ -3,7 +3,7 @@ local M = {}
 M.family = {
     text = "Gabarito",
     numeric = "Gabarito",
-    icon = "SpaceMono Nerd Font",
+    icon = "JetBrainsMono Nerd Font",
 }
 
 M.size = { sm = 11, md = 13, lg = 14, xl = 16 }
