@@ -1,5 +1,5 @@
 
-# iluvgirlswithglasses' SketchyBar
+# nethil2's SketchyBar
 
 <img width="1238" height="800" alt="desktop-1-800-sharp" src="https://github.com/user-attachments/assets/170fb02f-9477-4d86-96ea-c67dbc1a3394" />
 
@@ -20,7 +20,7 @@ xcode-select --install
 
 ```sh
 # clone this repo:
-git clone https://github.com/iluvgirlswithglasses/sketchybar ~/.config/sketchybar
+git clone https://github.com/pgkyg79f6w-blip/sketchybar ~/.config/sketchybar
 
 # start sketchybar services:
 brew services start felixkratz/formulae/sketchybar
