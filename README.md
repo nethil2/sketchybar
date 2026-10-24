@@ -29,7 +29,7 @@ Build SbarLua (required for this Lua-based config):
 
 ```sh
 # clone this repo into your config dir
-git clone https://github.com/pgkyg79f6w-blip/sketchybar ~/.config/sketchybar
+git clone https://github.com/nethil2/sketchybar ~/.config/sketchybar
 
 # make sure sketchybarrc is executable
 chmod +x ~/.config/sketchybar/sketchybarrc
