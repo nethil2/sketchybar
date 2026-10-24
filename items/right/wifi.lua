@@ -20,7 +20,7 @@ local wifi = ui.item("wifi", {
     },
 })
 
-local HELPER = "/Users/nethil2/Applications/WifiSSIDHelper.app/Contents/MacOS/WifiSSIDHelper"
+local HELPER = os.getenv("HOME") .. "/Applications/WifiSSIDHelper.app/Contents/MacOS/WifiSSIDHelper"
 
 local function update()
     local cmd = "ifconfig " .. IFACE .. " | awk '/status:/{print $2}'; " .. HELPER
